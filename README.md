@@ -11,6 +11,7 @@ A custom node extension for ComfyUI that enables batch processing of prompts fro
 - Limit the number of files to process
 - Start from a specific index
 - Force reload option for dynamic workflows
+- Save multiple prompts to individual text files at once
 
 ## Installation
 
@@ -24,9 +25,13 @@ git clone https://github.com/USERNAME/ComfyUI_PromptBatcher.git
 
 ## Usage
 
-The extension adds a new node called "Load Prompts From Dir" in the JMNodes category.
+The extension adds the following nodes in the PromptBatcher category:
 
-### Node Inputs
+### Load Prompts From Dir
+
+Loads multiple prompt files from a directory.
+
+#### Node Inputs
 
 - **directory**: Path to the folder containing your prompt text files
 - **file_prefix** (optional): Only load files that start with this prefix
@@ -34,10 +39,25 @@ The extension adds a new node called "Load Prompts From Dir" in the JMNodes cate
 - **start_index** (optional): Start loading from this index in the file list
 - **load_always** (optional): Force reload files on every execution
 
-### Node Outputs
+#### Node Outputs
 
 - **PROMPT**: A list of prompt strings loaded from the text files
 - **FILE_PATH**: A list of absolute file paths for the loaded files
+
+### Save Text To Files
+
+Saves multiple prompts from a multiline text input to individual text files.
+
+#### Node Inputs
+
+- **text**: A multiline text input, where each line will be saved as a separate prompt file
+- **output_directory** (optional): Directory to save the files (default: "input")
+- **file_prefix** (optional): Prefix for the generated filenames (default: "Scene")
+
+#### Node Outputs
+
+- **output_path**: The absolute path where files were saved
+- **file_prefix**: The prefix used for the files
 
 ## Example Workflow
 
@@ -63,6 +83,7 @@ ComfyUI_PromptBatcher/
 ├── nodes/                    # Custom nodes implementation
 │   ├── __init__.py           # Node registration
 │   ├── prompt_batcher.py     # LoadPromptsFromDir node
+│   ├── text_saver.py         # SaveTextToFiles node
 │   └── ...                   # Future nodes can be added here
 ├── examples/                 # Example workflows and prompts
 │   ├── basic_batch_workflow.json

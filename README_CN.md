@@ -11,6 +11,7 @@ ComfyUI的自定义节点扩展，支持批量处理文本文件中的提示词�
 - 限制处理文件数量
 - 从指定索引开始加载
 - 强制重新加载选项，适用于动态工作流
+- 一次性将多个提示词保存为单独的文本文件
 
 ## 安装方法
 
@@ -24,9 +25,13 @@ git clone https://github.com/USERNAME/ComfyUI_PromptBatcher.git
 
 ## 使用方法
 
-此扩展在JMNodes类别中添加了一个名为"Load Prompts From Dir"的新节点。
+此扩展在PromptBatcher类别中添加了以下节点：
 
-### 节点输入
+### Load Prompts From Dir（加载目录提示词）
+
+从目录中加载多个提示词文件。
+
+#### 节点输入
 
 - **directory**：包含提示词文本文件的文件夹路径
 - **file_prefix**（可选）：仅加载以此前缀开头的文件
@@ -34,10 +39,25 @@ git clone https://github.com/USERNAME/ComfyUI_PromptBatcher.git
 - **start_index**（可选）：从文件列表中的此索引开始加载
 - **load_always**（可选）：每次执行时强制重新加载文件
 
-### 节点输出
+#### 节点输出
 
 - **PROMPT**：从文本文件加载的提示词字符串列表
 - **FILE_PATH**：已加载文件的绝对路径列表
+
+### Save Text To Files（保存文本到文件）
+
+将多行文本输入中的每一行提示词保存为单独的文本文件。
+
+#### 节点输入
+
+- **text**：多行文本输入，每行将被保存为单独的提示词文件
+- **output_directory**（可选）：保存文件的目录（默认："input"）
+- **file_prefix**（可选）：生成的文件名前缀（默认："Scene"）
+
+#### 节点输出
+
+- **output_path**：文件保存的绝对路径
+- **file_prefix**：文件使用的前缀
 
 ## 示例工作流
 
@@ -63,6 +83,7 @@ ComfyUI_PromptBatcher/
 ├── nodes/                    # 自定义节点实现
 │   ├── __init__.py           # 节点注册
 │   ├── prompt_batcher.py     # LoadPromptsFromDir节点
+│   ├── text_saver.py         # SaveTextToFiles节点
 │   └── ...                   # 未来可在此添加更多节点
 ├── examples/                 # 示例工作流和提示词
 │   ├── basic_batch_workflow.json
