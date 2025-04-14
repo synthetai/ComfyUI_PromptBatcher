@@ -22,7 +22,7 @@ class LoadPromptsFromDir:
 
     FUNCTION = "load_prompts"
 
-    CATEGORY = "JMNodes"
+    CATEGORY = "PromptBatcher"
 
     @classmethod
     def IS_CHANGED(cls, **kwargs):
