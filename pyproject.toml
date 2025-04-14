@@ -1,0 +1,15 @@
+[project]
+name = "promptbatcher"
+description = "A custom node extension for ComfyUI that enables batch processing of prompts from text files to generate multiple images."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["# No external dependencies required"]
+
+[project.urls]
+Repository = "https://github.com/synthetai/ComfyUI_PromptBatcher"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI_PromptBatcher"
+Icon = ""
