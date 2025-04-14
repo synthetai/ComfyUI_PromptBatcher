@@ -1,288 +1,537 @@
 {
-  "last_node_id": 5,
-  "last_link_id": 6,
+  "id": "181bd4fb-d252-42dc-a495-b72833b4f22b",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 11,
   "nodes": [
     {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        742,
+        464
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
       "id": 1,
-      "type": "LoadPromptsFromDir",
-      "pos": [100, 200],
-      "size": [300, 150],
+      "type": "UNETLoader",
+      "pos": [
+        339,
+        243
+      ],
+      "size": [
+        315,
+        82
+      ],
       "flags": {},
       "order": 0,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "directory",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "directory",
-            "value": "prompts"
-          }
-        },
-        {
-          "name": "file_prefix",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "file_prefix",
-            "value": ""
-          }
-        },
-        {
-          "name": "file_load_cap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "file_load_cap",
-            "value": 0
-          }
-        },
-        {
-          "name": "start_index",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "start_index",
-            "value": 0
-          }
-        },
-        {
-          "name": "load_always",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "load_always",
-            "value": false
-          }
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "PROMPT",
-          "type": "STRING",
-          "links": [3],
-          "slot_index": 0
-        },
-        {
-          "name": "FILE_PATH",
-          "type": "STRING",
-          "links": [4],
-          "slot_index": 1
+          "label": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            3
+          ]
         }
       ],
-      "title": "Load Prompts From Dir"
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.safetensors",
+        "default"
+      ]
     },
     {
       "id": 2,
-      "type": "KSamplerAdvanced",
-      "pos": [500, 200],
-      "size": [300, 400],
+      "type": "DualCLIPLoader",
+      "pos": [
+        347,
+        389
+      ],
+      "size": [
+        315,
+        122
+      ],
       "flags": {},
       "order": 1,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 5
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": null
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": null
-        },
-        {
-          "name": "seed",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "seed",
-            "value": 0
-          }
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "steps",
-            "value": 20
-          }
-        },
-        {
-          "name": "cfg",
-          "type": "FLOAT",
-          "link": null,
-          "widget": {
-            "name": "cfg",
-            "value": 7.0
-          }
-        },
-        {
-          "name": "sampler_name",
-          "type": "COMBO[STRING]",
-          "link": null,
-          "widget": {
-            "name": "sampler_name",
-            "value": "euler_a"
-          }
-        },
-        {
-          "name": "scheduler",
-          "type": "COMBO[STRING]",
-          "link": null,
-          "widget": {
-            "name": "scheduler",
-            "value": "normal"
-          }
-        },
-        {
-          "name": "denoise",
-          "type": "FLOAT",
-          "link": null,
-          "widget": {
-            "name": "denoise",
-            "value": 1.0
-          }
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [6],
-          "slot_index": 0
+          "label": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            4,
+            5
+          ]
         }
       ],
-      "title": "KSamplerAdvanced"
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp16.safetensors",
+        "flux",
+        "default"
+      ]
     },
     {
       "id": 3,
-      "type": "CLIPTextEncode",
-      "pos": [300, 300],
-      "size": [180, 100],
+      "type": "VAELoader",
+      "pos": [
+        343,
+        557
+      ],
+      "size": [
+        315,
+        58
+      ],
       "flags": {},
       "order": 2,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 3
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        }
-      ],
+      "inputs": [],
       "outputs": [
         {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [5],
-          "slot_index": 0
+          "label": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            8
+          ]
         }
       ],
-      "title": "CLIP Text Encode"
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
     },
     {
-      "id": 4,
-      "type": "SaveImage",
-      "pos": [800, 300],
-      "size": [180, 100],
+      "id": 7,
+      "type": "EmptyLatentImage",
+      "pos": [
+        752,
+        707
+      ],
+      "size": [
+        315,
+        106
+      ],
       "flags": {},
       "order": 3,
       "mode": 0,
-      "inputs": [
+      "inputs": [],
+      "outputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": null
-        },
-        {
-          "name": "filename_prefix",
-          "type": "STRING",
-          "link": 4
+          "label": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
         }
       ],
-      "outputs": [],
-      "title": "Save Image"
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
     },
     {
-      "id": 5,
-      "type": "VAEDecode",
-      "pos": [650, 400],
-      "size": [150, 60],
+      "id": 4,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        740,
+        216
+      ],
+      "size": [
+        400,
+        200
+      ],
       "flags": {},
-      "order": 4,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 6
+          "label": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
         },
         {
-          "name": "vae",
-          "type": "VAE",
-          "link": null
+          "name": "t5xxl",
+          "type": "STRING",
+          "widget": {
+            "name": "t5xxl"
+          },
+          "link": 10
         }
       ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [],
-          "slot_index": 0
+          "label": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
         }
       ],
-      "title": "VAE Decode"
-    }
-  ],
-  "links": [
-    {
-      "id": 3,
-      "origin_node_id": 1,
-      "origin_slot": 0,
-      "target_node_id": 3,
-      "target_slot": 0
-    },
-    {
-      "id": 4,
-      "origin_node_id": 1,
-      "origin_slot": 1,
-      "target_node_id": 4,
-      "target_slot": 1
-    },
-    {
-      "id": 5,
-      "origin_node_id": 3,
-      "origin_slot": 0,
-      "target_node_id": 2,
-      "target_slot": 1
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "",
+        "In Future City, the words \"podwide\" are displayed in brilliant colors across the top of the screen",
+        3.5
+      ]
     },
     {
       "id": 6,
-      "origin_node_id": 2,
-      "origin_slot": 0,
-      "target_node_id": 5,
-      "target_slot": 0
+      "type": "KSampler",
+      "pos": [
+        1263.29296875,
+        229.8359375
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "label": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1
+        },
+        {
+          "label": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 2
+        },
+        {
+          "label": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "label": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        461128279945444,
+        "randomize",
+        30,
+        1,
+        "euler",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadPromptsFromDir",
+      "pos": [
+        345.12109375,
+        -7.50390625
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "PROMPT",
+          "name": "PROMPT",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "label": "FILE_PATH",
+          "name": "FILE_PATH",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "synthetai/ComfyUI_PromptBatcher",
+        "ver": "d9649ee00ffba993b46623119bd49a5e51e56fba",
+        "Node name for S&R": "LoadPromptsFromDir"
+      },
+      "widgets_values": [
+        "/workspace/test001",
+        "prompt",
+        0,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1677,
+        241
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "PreviewImage",
+      "pos": [
+        1689.6297607421875,
+        344.5317687988281
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [
+        ""
+      ]
     }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      2,
+      5,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      1,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      7,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      7,
+      6,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      10,
+      0,
+      4,
+      1,
+      "STRING"
+    ],
+    [
+      11,
+      8,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ]
   ],
   "groups": [],
   "config": {},
-  "extra": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8390545288824037,
+      "offset": [
+        0.07495848506403036,
+        196.1575838690395
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
   "version": 0.4
-} 
+}
