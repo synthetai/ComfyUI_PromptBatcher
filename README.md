@@ -76,27 +76,6 @@ prompts/
 
 Each text file should contain a single prompt.
 
-## Project Structure
-
-```
-ComfyUI_PromptBatcher/
-├── nodes/                    # Custom nodes implementation
-│   ├── __init__.py           # Node registration
-│   ├── prompt_batcher.py     # LoadPromptsFromDir node
-│   ├── text_saver.py         # SaveTextToFiles node
-│   └── ...                   # Future nodes can be added here
-├── examples/                 # Example workflows and prompts
-│   ├── basic_batch_workflow.json
-│   └── prompts/
-│       ├── prompt1.txt
-│       └── prompt2.txt
-├── __init__.py               # Package initialization
-├── setup.py                  # Installation setup
-├── requirements.txt          # Dependencies (none required)
-├── README.md                 # English documentation
-├── README_CN.md              # Chinese documentation
-└── LICENSE                   # MIT License
-```
 
 ## License
 

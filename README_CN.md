@@ -76,28 +76,6 @@ prompts/
 
 每个文本文件应包含一个提示词。
 
-## 项目结构
-
-```
-ComfyUI_PromptBatcher/
-├── nodes/                    # 自定义节点实现
-│   ├── __init__.py           # 节点注册
-│   ├── prompt_batcher.py     # LoadPromptsFromDir节点
-│   ├── text_saver.py         # SaveTextToFiles节点
-│   └── ...                   # 未来可在此添加更多节点
-├── examples/                 # 示例工作流和提示词
-│   ├── basic_batch_workflow.json
-│   └── prompts/
-│       ├── prompt1.txt
-│       └── prompt2.txt
-├── __init__.py               # 包初始化
-├── setup.py                  # 安装设置
-├── requirements.txt          # 依赖项（无需外部依赖）
-├── README.md                 # 英文文档
-├── README_CN.md              # 中文文档
-└── LICENSE                   # MIT许可证
-```
-
 ## 许可证
 
 MIT许可证
