@@ -1,0 +1,119 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "SaveTextToFiles",
+      "pos": [
+        563.296875,
+        300.71484375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "output_path",
+          "name": "output_path",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        },
+        {
+          "label": "file_prefix",
+          "name": "file_prefix",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "synthetai/ComfyUI_PromptBatcher",
+        "ver": "70418472168fb0b8d420a0318e4a653ba893b417",
+        "Node name for S&R": "SaveTextToFiles"
+      },
+      "widgets_values": [
+        "A chaotic cityscape bathed in the neon glow of streetlights is torn apart by a wild street race, cars launching off ramps and skidding through intersections at breakneck speed. In the foreground, a tricked-out muscle car with oversized rear tires and flaming exhaust burns rubber, leaving a trail of smoke and sparks. The city skyline behind is shattered, as if the force of the speed has cracked reality itself. A metal skull with a checkered bandana grins wickedly from the hood of the lead car, its empty sockets reflecting the chaos.\n\nA tiny alien snail, its shell made of prismatic, ever-shifting crystal that reflects the light in dazzling colors. Its antennae have tiny glowing orbs at the tips, and its slimy, semi-transparent body leaves behind a faint glowing trail. It tilts its head curiously, examining the person holding it. The background is an alien garden filled with softly glowing plants and bokeh light specks floating like fireflies.",
+        "/workspace/test001",
+        "prompt"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "ShowText|pysssss",
+      "pos": [
+        1019.17578125,
+        297.03515625
+      ],
+      "size": [
+        315,
+        100
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "label": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "9f7b3215e6af317603056a9a1666bf6e83e28835",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "/workspace/test001"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
